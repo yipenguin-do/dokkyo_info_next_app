@@ -9,6 +9,7 @@ export type Club = {
     date: string,
     imagePath: string,
     explain: string,
+    detail: string,
     class: string
     tag: string
 };
@@ -111,25 +112,28 @@ export const clubList: Club[] = [{
     date: "月・水・金",
     imagePath: makeImagePath('sports', 'basketball'),
     explain: "楽しく活動しています！",
-    class: "非公認サークル",
+    detail: "この部活動は鈴木のみが入れる部活動の集まり、「鈴木連合」を構成する部活の一つです。\n練習は月水金と多いように感じるかもしれませんが、強制はしていないため好きなときに集まってやる感じです！ぜひ鈴木という苗字の方はご加入して下さい！",
+    class: "非公認, 体育系, インカレ",
     tag: "初心者歓迎, 仲良し, 大会あり"
 }, {
     id: 2,
     slug: "tenis",
-    name: "テニスサークル",
+    name: "テニス: GreenClub",
     date: "火・水・金",
     imagePath: makeImagePath('article', 'logo'),
     explain: "ゆっくり活動しています！",
-    class: "体育会部活動",
-    tag: "初心者歓迎, 仲良し, 大会あり"
+    detail: "テニススクール出身！初心者くんな",
+    class: "公認, 体育系, 部活",
+    tag: "初心者歓迎, 仲良し, 大会あり, 不仲"
 }, {
     id: 3,
     slug: "economy",
-    name: "経済学研究会",
+    name: "フェアトレード LANKA",
     date: "不定",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "不真面目募集。",
-    class: "文化会部活動",
+    detail: "正直経済学関連より社会学系の活動してます。",
+    class: "非公認, 文化系, サークル",
     tag: "初心者歓迎, 仲良し"
 }, {
     id: 4,
@@ -138,7 +142,8 @@ export const clubList: Club[] = [{
     date: "平日毎日",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "本気目指しませんか？",
-    class: "文化会部活動",
+    detail: "定期的に演奏会してますよ。是非の部活に入りましょう！",
+    class: "公認, 文化系, 部活",
     tag: "初心者歓迎, 体験型"
 }, {
     id: 5,
@@ -147,8 +152,9 @@ export const clubList: Club[] = [{
     date: "月",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "週に一度の会議のみ！",
-    class: "公的団体",
-    tag: "経験者のみ, 仲良し, ディスカッション"
+    detail: "図書館で活動しています！本好きの方はぜひ！",
+    class: "公的団体, 文化系",
+    tag: "経験者のみ, 仲良し"
 }, {
     id: 6,
     slug: "cssemi",
@@ -156,7 +162,8 @@ export const clubList: Club[] = [{
     date: "火・木・土",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "ハッカソン出場！",
-    class: "公認サークル",
+    detail: "ハッカソンやアルゴリズム研究やっています！",
+    class: "公認, 文化系, サークル",
     tag: "初心者歓迎, 大会あり"
 }, {
     id: 7,
@@ -165,16 +172,18 @@ export const clubList: Club[] = [{
     date: "月・火",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "学術団体",
-    class: "公式サークル",
+    detail: "WEBアプリとか作れるようになれます。",
+    class: "公認, 文化系, サークル, 女子限定",
     tag: "大会あり"
 }, {
     id: 8,
     slug: "basketballlynx",
-    name: "バスケサークル LYNX",
+    name: "バスケ: LYNX",
     date: "月水金",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "一部昇格目指して🔥",
-    class: "学生団体",
+    detail: "バスケサークルです！まじゆるくやっています！",
+    class: "学生団体, 体育系",
     tag: "春から大学, 初心者歓迎"
 }]
 

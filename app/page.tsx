@@ -8,8 +8,113 @@ import Image from 'next/image'
 
 // 設計　ヘッダー→サークル→ゼミ→記事→
 
+
+// Stateをpropsで渡すときの型定義はfunctionより厳格にはReact.Dispatch<React.SetStateAction<TYPE>>にする。functionでもあり？
 type BadgeProps = {
   groupClass: string;
+  setKeyword?: React.Dispatch<React.SetStateAction<string>>;
+}
+
+type TagProps = {
+  groupTag: string;
+  setKeyword: React.Dispatch<React.SetStateAction<string>>;
+}
+
+type ClassCulb = {
+  clubClass: string;
+  setKeyword?: React.Dispatch<React.SetStateAction<string>>;
+}
+
+
+export function Badge({ groupClass, setKeyword }: BadgeProps) {
+  return (
+    // <div className="flex flex-wrap gap-1 text-[8px] md:text-[15px]">
+    //   {groupClass.split(", ").map((classify) => (
+    //     <button
+    //       key={classify}
+    //       onClick={() => setKeyword(classify)}
+    //       className="bg-blue-100 hover:bg-blue-300 transition duration-300 p-1 px-2 w-fit rounded-full text-md"
+    //     >
+    //       {classify}
+    //     </button>
+    //   ))}
+    // </div>
+    <ClubClassify
+      clubClass={groupClass}
+      setKeyword={setKeyword}
+    />
+  )
+}
+
+export function Tag({ groupTag, setKeyword }: TagProps) {
+  return (
+    <div className="flex gap-1 flex-wrap mt-2">
+      {groupTag.split(", ").map((tag) => (
+        <button
+          key={tag}
+          onClick={() => setKeyword(tag)}
+          className="px-2 py-1 text-xs md:text-sm bg-green-400 transition-colors duration-300 rounded-md hover:bg-green-500"
+        >
+          #{tag}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+export function ClubClassify({ clubClass, setKeyword }: ClassCulb ) {
+  return (
+    <div className="flex flex-wrap gap-1 md:flex">
+      {clubClass.split(", ").map((clubClass) => {
+        if (clubClass === '非公認') {
+          return (
+            // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-red-300 py-1 px-2 rounded-full border-1 border-red-400">{clubClass}</div>
+            <button key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-red-300 hover:bg-red-400 transition duration-300 py-1 px-2 rounded-full border-1 border-red-400" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+          )
+        } else if (clubClass === '公認') {
+          return (
+            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-green-400 py-1 px-2 rounded-full border-1 border-green-500">{clubClass}</div>
+          )
+        } else if (clubClass === '体育系') {
+          return (
+            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-blue-400 py-1 px-2 rounded-full border-1 border-blue-500">{clubClass}</div>
+          )
+        } else if (clubClass === '文化系') {
+          return (
+            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-yellow-400 py-1 px-2 rounded-full border-1 border-yellow-500">{clubClass}</div>
+          )
+        } else if (clubClass === '部活') {
+          return (
+            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-lime-400 py-1 px-2 rounded-full border-1 border-lime-500">{clubClass}</div>
+          )
+        } else if (clubClass === 'サークル') {
+          return (
+            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-violet-400 py-1 px-2 rounded-full border-1 border-violet-500">{clubClass}</div>
+          )
+        } else if (clubClass === '公的団体') {
+          return (
+            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-[#3e4957] py-1 px-2 rounded-full border-1 border-[#141b2a]">{clubClass}</div>
+          )
+        } else if (clubClass === '学生団体' || clubClass === 'インカレ') {
+          return (
+            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-taupe-400 py-1 px-2 rounded-full border-1 border-taupe-500">{clubClass}</div>
+          )
+        } else {
+          return (
+            <div
+              key={clubClass}
+              className="text-[10px] text-[#000] w-fit h-fit  bg-white py-1 px-2 rounded-full border-1">
+              {clubClass}
+            </div>
+          )
+        }
+
+      }
+
+      )}
+
+    </div>
+  )
 }
 
 export default function App() {
@@ -31,7 +136,13 @@ export default function App() {
             tag.toLowerCase().includes(normalizedKeyword)
           );
 
-        return nameMatch || tagMatch;
+        const classMach = club.class
+          .split(", ")
+          .some((classify) =>
+            classify.toLowerCase().includes(normalizedKeyword)
+          );
+
+        return nameMatch || tagMatch || classMach;
       })
       .sort(() => 0.5 - Math.random())
       .slice(0, 4);
@@ -48,23 +159,12 @@ export default function App() {
 
   }, [keyword])
 
-  function Badge({ groupClass }: BadgeProps) {
-    return (
-      <div className="bg-blue-100 p-1 px-2 w-fit rounded-full text-md">
-        <p>{groupClass}</p>
-      </div>
-    )
-  }
-
-  let i = 0;
-
-  // while (keyword[i] <= keyword) {
-
-  // }
-
-
   return (
     <>
+      <section>
+        <h1>textext</h1>
+      </section>
+
       <input
         type="text"
         placeholder="検索してみよう！"
@@ -80,6 +180,9 @@ export default function App() {
           <div className="flex items-center gap-3 mt-2">
             <span className="text-sm text-gray-500 pr-5">
               # {keyword} で検索中
+              {/* { if (keyword === [clubList.tag]) {
+                return(<p>{keyword}</p>)
+              }} */}
             </span>
 
             <button
@@ -95,19 +198,19 @@ export default function App() {
         <p className="text-sm md:text-base h-fit">人気上位のタグ：</p>
         <div className="gap-2 px-5">
           {["初心者歓迎", "仲良し", "大会あり"].map((tag) => (
-          <button
-            key={tag}
-            onClick={() => setKeyword(tag)}
-            className="px-3 py-1 bg-gray-200 rounded-full transition-colors duration-300 hover:bg-green-400 size-auto text-[12px] md:text-base"
-          >
-            #{tag}
-          </button>
-        ))}</div>
-        
+            <button
+              key={tag}
+              onClick={() => setKeyword(tag)}
+              className="px-3 py-1 bg-gray-200 rounded-full transition-colors duration-300 hover:bg-green-400 size-auto text-[12px] md:text-base"
+            >
+              #{tag}
+            </button>
+          ))}</div>
+
       </div>
       <section> {/* 部活サークル等の表示。ただし、このページでは４枚程度を表示する。 */}
         <p>部活・サークル</p>
-        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 lg:gap-10 p-6">
+        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center p-6 md:max-w-300 sm:max-w-150">
           {randomClubs.length === 0 && (
             <p className="col-span-full text-center text-gray-400">
               該当する団体がありません
@@ -150,19 +253,24 @@ export default function App() {
                 key={club.id}
                 className="p-3 rounded-xl shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-md">
                 <Link href={`/clubs/${club.slug}`}>
-
-                  <div>
-                    <List
-                      imagePath={club.imagePath}
-                      name={club.name}
-                      date={club.date}
-                      explain={club.explain}
-                    />
-                    <Badge groupClass={club.class} />
-                  </div>
+                  <List
+                    imagePath={club.imagePath}
+                    name={club.name}
+                    date={club.date}
+                    explain={club.explain}
+                  />
                 </Link>
 
-                <div className="flex gap-1 flex-wrap mt-2">
+                <Badge
+                  groupClass={club.class}
+                  setKeyword={setKeyword}
+                />
+                <Tag
+                  groupTag={club.tag}
+                  setKeyword={setKeyword}
+                />
+
+                {/* <div className="flex gap-1 flex-wrap mt-2">
                   {club.tag.split(", ").map((tag) => (
                     <button
                       key={tag}
@@ -172,7 +280,8 @@ export default function App() {
                       #{tag}
                     </button>
                   ))}
-                </div>
+                </div> */}
+
               </div>
             ))}
         </div>

@@ -3,6 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
+
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
+
 // import { useState } from "react";
 
 const geistSans = Geist({
