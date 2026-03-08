@@ -2,17 +2,18 @@ import { getDefaultAutoSelectFamily } from "net";
 import { exportPages } from "next/dist/export/worker";
 import { stderr } from "process"
 
-export type Club = {
-    id: number,
-    slug: string,
-    name: string,
-    date: string,
-    imagePath: string,
-    explain: string,
-    detail: string,
-    class: string
-    tag: string
-};
+// export type Club = {
+//     id: number,
+//     slug: string,
+//     name: string,
+//     date: string,
+//     costs: string,
+//     imagePath: string,
+//     explain: string,
+//     detail: string,
+//     class: string
+//     tag: string
+// };
 
 export type Semi = {
     id: number,
@@ -60,66 +61,82 @@ const makeImagePath = (classify: string, name: string) => {
         return tempImagePath;
 }
 
-const groupStatus = [{
-    status: "非公認サークル"
-}]
+// const groupStatus = [{
+//     status: "非公認サークル"
+// }]
 
-const clubTagList = [{
-    tag: "初心者歓迎"
-}, {
-    tag: "経験者歓迎"
-}, {
-    tag: "大会あり"
-}, {
-    tag: "大会なし"
-}, {
-    tag: "忙しい"
-}, {
-    tag: "のんびり"
-}, {
-    tag: "仲良し"
-}, {
-    tag: "学術団体"
-}, {
-    tag: "体育系"
-}, {
-    tag: "文化系"
-}, {
-    tag: "部活動"
-}, {
-    tag: "公認サークル"
-}, {
-    tag: "非公認サークル"
-}, {
-    tag: "学生団体"
-}]
+// const clubTagList = [{
+//     tag: "初心者歓迎"
+// }, {
+//     tag: "経験者歓迎"
+// }, {
+//     tag: "大会あり"
+// }, {
+//     tag: "大会なし"
+// }, {
+//     tag: "忙しい"
+// }, {
+//     tag: "のんびり"
+// }, {
+//     tag: "仲良し"
+// }, {
+//     tag: "学術団体"
+// }, {
+//     tag: "体育系"
+// }, {
+//     tag: "文化系"
+// }, {
+//     tag: "部活動"
+// }, {
+//     tag: "公認サークル"
+// }, {
+//     tag: "非公認サークル"
+// }, {
+//     tag: "学生団体"
+// }]
 
-const semiTagList = [{
-    tag: "経済学部"
-}, {
-    tag: "法学部"
-}, {
-    tag: "国際教養学部"
-}, {
-    tag: "外国語学部"
-}
-]
+// const semiTagList = [{
+//     tag: "経済学部"
+// }, {
+//     tag: "法学部"
+// }, {
+//     tag: "国際教養学部"
+// }, {
+//     tag: "外国語学部"
+// }
+// ]
 
+export type Club = {
+    id: number,
+    slug: string,
+    name: string,
+    date: string,
+    costs: string,
+    imagePath: string,
+    explain: string,
+    detail: string,
+    class: string
+    tag: string
+};
+
+// 年間予定表も追加予定
 export const clubList: Club[] = [{
     id: 1,
     slug: "basketball",
     name: "鈴木バスケ部",
     date: "月・水・金",
+    costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'basketball'),
     explain: "楽しく活動しています！",
     detail: "この部活動は鈴木のみが入れる部活動の集まり、「鈴木連合」を構成する部活の一つです。\n練習は月水金と多いように感じるかもしれませんが、強制はしていないため好きなときに集まってやる感じです！ぜひ鈴木という苗字の方はご加入して下さい！",
-    class: "非公認, 体育系, インカレ",
+    class: "非公認, 体育系, インカレ, 部費なし",
     tag: "初心者歓迎, 仲良し, 大会あり"
 }, {
     id: 2,
     slug: "tenis",
     name: "テニス: GreenClub",
     date: "火・水・金",
+    costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('article', 'logo'),
     explain: "ゆっくり活動しています！",
     detail: "テニススクール出身！初心者くんな",
@@ -130,6 +147,7 @@ export const clubList: Club[] = [{
     slug: "economy",
     name: "フェアトレード LANKA",
     date: "不定",
+    costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "不真面目募集。",
     detail: "正直経済学関連より社会学系の活動してます。",
@@ -140,6 +158,7 @@ export const clubList: Club[] = [{
     slug: "ocestra",
     name: "吹奏楽部",
     date: "平日毎日",
+    costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "本気目指しませんか？",
     detail: "定期的に演奏会してますよ。是非の部活に入りましょう！",
@@ -150,6 +169,7 @@ export const clubList: Club[] = [{
     slug: "librarysupporter",
     name: "LIBRARY Supporters",
     date: "月",
+    costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "週に一度の会議のみ！",
     detail: "図書館で活動しています！本好きの方はぜひ！",
@@ -160,6 +180,7 @@ export const clubList: Club[] = [{
     slug: "cssemi",
     name: "計算機科学研究部ゼミ",
     date: "火・木・土",
+    costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "ハッカソン出場！",
     detail: "ハッカソンやアルゴリズム研究やっています！",
@@ -170,6 +191,7 @@ export const clubList: Club[] = [{
     slug: "coding",
     name: "DU(code);",
     date: "月・火",
+    costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "学術団体",
     detail: "WEBアプリとか作れるようになれます。",
@@ -180,6 +202,7 @@ export const clubList: Club[] = [{
     slug: "basketballlynx",
     name: "バスケ: LYNX",
     date: "月水金",
+    costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "一部昇格目指して🔥",
     detail: "バスケサークルです！まじゆるくやっています！",

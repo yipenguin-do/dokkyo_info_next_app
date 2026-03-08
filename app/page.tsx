@@ -25,7 +25,7 @@ type ClassCulb = {
   setKeyword?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
+// 下のやついらない。複雑化しているため単純化させる必要あり
 export function Badge({ groupClass, setKeyword }: BadgeProps) {
   return (
     // <div className="flex flex-wrap gap-1 text-[8px] md:text-[15px]">
@@ -62,50 +62,66 @@ export function Tag({ groupTag, setKeyword }: TagProps) {
   )
 }
 
-export function ClubClassify({ clubClass, setKeyword }: ClassCulb ) {
+export function ClubClassify({ clubClass, setKeyword }: ClassCulb) {
   return (
     <div className="flex flex-wrap gap-1 md:flex">
       {clubClass.split(", ").map((clubClass) => {
         if (clubClass === '非公認') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-red-300 py-1 px-2 rounded-full border-1 border-red-400">{clubClass}</div>
-            <button key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-red-300 hover:bg-red-400 transition duration-300 py-1 px-2 rounded-full border-1 border-red-400" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-rose-300 hover:bg-rose-400 transition duration-300 py-1 px-2 rounded-full border-1 border-red-400" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
           )
         } else if (clubClass === '公認') {
           return (
-            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-green-400 py-1 px-2 rounded-full border-1 border-green-500">{clubClass}</div>
+            // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-green-400 py-1 px-2 rounded-full border-1 border-green-500">{clubClass}</div>
+            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-green-400 hover:bg-green-500 transition duration-300 py-1 px-2 rounded-full border-1 border-green-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+
           )
         } else if (clubClass === '体育系') {
           return (
-            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-blue-400 py-1 px-2 rounded-full border-1 border-blue-500">{clubClass}</div>
+            // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-blue-400 py-1 px-2 rounded-full border-1 border-blue-500">{clubClass}</div>
+            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-blue-400 hover:bg-blue-500 transition duration-300 py-1 px-2 rounded-full border-1 border-blue-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+
           )
         } else if (clubClass === '文化系') {
           return (
-            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-yellow-400 py-1 px-2 rounded-full border-1 border-yellow-500">{clubClass}</div>
+            // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-yellow-400 py-1 px-2 rounded-full border-1 border-yellow-500">{clubClass}</div>
+            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-yellow-400 hover:bg-yellow-500 transition duration-300 py-1 px-2 rounded-full border-1 border-yellow-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+
           )
         } else if (clubClass === '部活') {
           return (
-            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-lime-400 py-1 px-2 rounded-full border-1 border-lime-500">{clubClass}</div>
+            // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-lime-400 py-1 px-2 rounded-full border-1 border-lime-500">{clubClass}</div>
+            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-orange-400 hover:bg-orange-500 transition duration-300 py-1 px-2 rounded-full border-1 border-orange-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+
           )
         } else if (clubClass === 'サークル') {
           return (
-            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-violet-400 py-1 px-2 rounded-full border-1 border-violet-500">{clubClass}</div>
+            // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-violet-400 py-1 px-2 rounded-full border-1 border-violet-500">{clubClass}</div>
+            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-purple-400 hover:bg-purple-500 transition duration-300 py-1 px-2 rounded-full border-1 border-purple-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+
           )
         } else if (clubClass === '公的団体') {
           return (
-            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-[#3e4957] py-1 px-2 rounded-full border-1 border-[#141b2a]">{clubClass}</div>
+            // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-[#3e4957] py-1 px-2 rounded-full border-1 border-[#141b2a]">{clubClass}</div>
+            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-[#3e4957] hover:bg-[#141b2a] transition duration-300 py-1 px-2 rounded-full border-1 border-[#141b2a]" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+
           )
         } else if (clubClass === '学生団体' || clubClass === 'インカレ') {
           return (
-            <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-taupe-400 py-1 px-2 rounded-full border-1 border-taupe-500">{clubClass}</div>
+            // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-taupe-400 py-1 px-2 rounded-full border-1 border-taupe-500">{clubClass}</div>
+            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-slate-400 hover:bg-slate-500 transition duration-300 py-1 px-2 rounded-full border-1 border-slate-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+
           )
         } else {
           return (
-            <div
+            <button
               key={clubClass}
-              className="text-[10px] text-[#000] w-fit h-fit  bg-white py-1 px-2 rounded-full border-1">
+              className="text-[8px] md:text-[12px] text-[#000] w-fit h-fit  bg-white py-1 px-2 rounded-full border-1 hover:bg-taupe-900 hover:text-white transition duration-300"
+              onClick={() => setKeyword?.(clubClass)}
+            >
               {clubClass}
-            </div>
+            </button>
           )
         }
 

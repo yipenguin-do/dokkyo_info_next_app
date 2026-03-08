@@ -103,6 +103,7 @@ export default async function DetailPage({ params }: Props) {
                     </span>
                 })}
             </p> */}
+                    <p>部費：{club.costs}</p>
                     <p className="">概要：{club.detail.replace(/\\n/g, "\n")}</p>
                 </div>
 
