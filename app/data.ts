@@ -125,14 +125,14 @@ export type Club = {
 // 年間予定表も追加予定
 export const clubList: Club[] = [{
     id: 1,
-    slug: "basketball",
-    name: "鈴木バスケ部",
-    date: "月・水・金",
-    location: "体育館",
-    costs: "入会費：500円、活動費：半期2000円",
+    slug: "dokkyoinfo",
+    name: "Dokkyo-Info.",
+    date: "不定",
+    location: "学生センター6階",
+    costs: "なし",
     imagePath: makeImagePath('sports', 'basketball'),
-    explain: "楽しく活動しています！",
-    detail: "この部活動は鈴木のみが入れる部活動です。\n練習は月水金と多いように感じるかもしれませんが、強制はしていないため好きなときに集まってやる感じです！ぜひ鈴木という苗字の方はご加入して下さい！aaaaaaaaaaaaaあああああああああああああああああああああああああああああ",
+    explain: "当サイトを運営しています！",
+    detail: "獨協大学の非公式情報メディアを運営。this is text.this is text.this is text.this is text.this is text.this is text.this is text.this is text.this is text.this is text.this is text.this is text.this is text.this is text.this is text.this is text.",
     sns: "https://note.com/dokkyo_info, https://www.instagram.com/dokkyo_info?igsh=bnF0dXRtbmUxOG9n&utm_source=qr, https://x.com/Duinfo_koho",
     class: "準公認, 体育系, インカレ, 部費なし",
     tag: "初心者歓迎, 仲良し, 大会あり"
