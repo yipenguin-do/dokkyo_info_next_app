@@ -61,6 +61,7 @@ const makeImagePath = (classify: string, name: string) => {
         return tempImagePath;
 }
 
+
 // const groupStatus = [{
 //     status: "非公認サークル"
 // }]
@@ -107,14 +108,16 @@ const makeImagePath = (classify: string, name: string) => {
 // ]
 
 export type Club = {
-    id: number,
-    slug: string,
-    name: string,
-    date: string,
-    costs: string,
-    imagePath: string,
-    explain: string,
-    detail: string,
+    id: number
+    slug: string
+    name: string
+    date: string
+    location: string
+    costs: string
+    imagePath: string
+    explain: string
+    detail: string
+    sns: string
     class: string
     tag: string
 };
@@ -125,32 +128,38 @@ export const clubList: Club[] = [{
     slug: "basketball",
     name: "鈴木バスケ部",
     date: "月・水・金",
+    location: "体育館",
     costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'basketball'),
     explain: "楽しく活動しています！",
-    detail: "この部活動は鈴木のみが入れる部活動の集まり、「鈴木連合」を構成する部活の一つです。\n練習は月水金と多いように感じるかもしれませんが、強制はしていないため好きなときに集まってやる感じです！ぜひ鈴木という苗字の方はご加入して下さい！",
-    class: "非公認, 体育系, インカレ, 部費なし",
+    detail: "この部活動は鈴木のみが入れる部活動です。\n練習は月水金と多いように感じるかもしれませんが、強制はしていないため好きなときに集まってやる感じです！ぜひ鈴木という苗字の方はご加入して下さい！aaaaaaaaaaaaaあああああああああああああああああああああああああああああ",
+    sns: "https://note.com/dokkyo_info, https://www.instagram.com/dokkyo_info?igsh=bnF0dXRtbmUxOG9n&utm_source=qr, https://x.com/Duinfo_koho",
+    class: "準公認, 体育系, インカレ, 部費なし",
     tag: "初心者歓迎, 仲良し, 大会あり"
 }, {
     id: 2,
     slug: "tenis",
-    name: "テニス: GreenClub",
+    name: "テニス: GreenLand",
     date: "火・水・金",
+    location: "グラウンド",
     costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('article', 'logo'),
     explain: "ゆっくり活動しています！",
-    detail: "テニススクール出身！初心者くんな",
+    detail: "テニススクール出身が多め",
+    sns: "https://www.instagram.com/dokkyo_info?igsh=bnF0dXRtbmUxOG9n&utm_source=qr, https://x.com/Duinfo_koho",
     class: "公認, 体育系, 部活",
-    tag: "初心者歓迎, 仲良し, 大会あり, 不仲"
+    tag: "初心者歓迎, 仲良し, 大会あり"
 }, {
     id: 3,
     slug: "economy",
-    name: "フェアトレード LANKA",
+    name: "フェアトレード LAN",
     date: "不定",
+    location: "学生センター1階",
     costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "不真面目募集。",
     detail: "正直経済学関連より社会学系の活動してます。",
+    sns: "https://www.instagram.com/dokkyo_info?igsh=bnF0dXRtbmUxOG9n&utm_source=qr",
     class: "非公認, 文化系, サークル",
     tag: "初心者歓迎, 仲良し"
 }, {
@@ -158,10 +167,12 @@ export const clubList: Club[] = [{
     slug: "ocestra",
     name: "吹奏楽部",
     date: "平日毎日",
+    location: "学生センター3階",
     costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "本気目指しませんか？",
     detail: "定期的に演奏会してますよ。是非の部活に入りましょう！",
+    sns: "https://x.com/Duinfo_koho",
     class: "公認, 文化系, 部活",
     tag: "初心者歓迎, 体験型"
 }, {
@@ -169,10 +180,12 @@ export const clubList: Club[] = [{
     slug: "librarysupporter",
     name: "LIBRARY Supporters",
     date: "月",
+    location: "図書館",
     costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "週に一度の会議のみ！",
     detail: "図書館で活動しています！本好きの方はぜひ！",
+    sns: "",
     class: "公的団体, 文化系",
     tag: "経験者のみ, 仲良し"
 }, {
@@ -180,10 +193,12 @@ export const clubList: Club[] = [{
     slug: "cssemi",
     name: "計算機科学研究部ゼミ",
     date: "火・木・土",
+    location: "E-201",
     costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "ハッカソン出場！",
     detail: "ハッカソンやアルゴリズム研究やっています！",
+    sns: "",
     class: "公認, 文化系, サークル",
     tag: "初心者歓迎, 大会あり"
 }, {
@@ -191,23 +206,53 @@ export const clubList: Club[] = [{
     slug: "coding",
     name: "DU(code);",
     date: "月・火",
+    location: "E-401",
     costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
-    explain: "学術団体",
+    explain: "獨協大学で珍しい学術団体です！",
     detail: "WEBアプリとか作れるようになれます。",
+    sns: "",
     class: "公認, 文化系, サークル, 女子限定",
     tag: "大会あり"
 }, {
     id: 8,
     slug: "basketballlynx",
-    name: "バスケ: LYNX",
+    name: "バスケ: LINUX",
     date: "月水金",
+    location: "体育館",
     costs: "入会費：500円、活動費：半期2000円",
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "一部昇格目指して🔥",
     detail: "バスケサークルです！まじゆるくやっています！",
+    sns: "",
     class: "学生団体, 体育系",
     tag: "春から大学, 初心者歓迎"
+}, {
+    id: 9,
+    slug: "dancechemi",
+    name: "ダンス：dancer",
+    date: "火木",
+    location: "学生センター2階",
+    costs: "活動費：半期1000円",
+    imagePath: makeImagePath('sports', 'noimage'),
+    explain: "初心者歓迎！Kpop好き歓迎！",
+    detail: "ダンス初心者歓迎！主にKpopとかのダンスやってます！",
+    sns: "",
+    class: "公認, サークル, 体育系",
+    tag: "春から獨協, 初心者歓迎, ほのぼの"
+}, {
+    id: 10,
+    slug: "gakuyukai",
+    name: "学友会",
+    date: "不定",
+    location: "学生センター3階",
+    costs: "なし",
+    imagePath: makeImagePath('sports', 'noimage'),
+    explain: "学内の部活・サークルを統括しています！",
+    detail: "学内の部活・サークルに関する業務を統括しています。真面目募集！",
+    sns: "",
+    class: "公的団体",
+    tag: ""
 }]
 
 

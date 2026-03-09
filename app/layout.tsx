@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Ubuntu } from "next/font/google";
 import Link from "next/link";
-import { Josefin_Sans } from "next/font/google";
+import { Josefin_Sans, Noto_Sans_JP, Kosugi_Maru } from "next/font/google";
 import "./globals.css";
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-regular-svg-icons"
+import { faPeopleRobbery, faChalkboardUser, faSchool } from "@fortawesome/free-solid-svg-icons";
+
 config.autoAddCss = false
 
 // import { useState } from "react";
@@ -15,16 +19,33 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const UbuntuFont = Ubuntu({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-Ubuntu"
+})
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
+const KosugiMaru = Kosugi_Maru({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-KosugiMaru"
+})
+
 const JosefinSans = Josefin_Sans({
-  weight: "200",
   style: "normal",
   subsets: ["latin"],
   variable: "--font-JosefinSans"
+})
+
+const NotoSansJp = Noto_Sans_JP({
+  style: "normal",
+  subsets: ["latin"],
+  variable: "--font-NotoSansJp"
 })
 
 export const metadata: Metadata = {
@@ -37,14 +58,13 @@ function Logo() {
   const imgPath = '/images/clubs/article/logo.png'
 
   return (
-    <div className={`${JosefinSans.className} text-4xl md:text-5xl lg:text-6xl py-4 px-4`}>
+    <div className={`${JosefinSans.className} text-4xl md:text-5xl lg:text-6xl py-4 px-4 font-light`}>
       {/* <img
         src={imgPath}
         alt="Logo"
         className="block w-[100px] aspect-[2/1] object-cover"
       /> */}
-      <h1
-      >
+      <h1>
         Dokkyo-Info.
       </h1>
     </div>
@@ -63,15 +83,15 @@ export function Header() {
         <Logo />
       </Link>
       <section className={"flex px-5 gap-5 py-5 h-fit"}>
-        <div className={` ${JosefinSans.className} hidden md:flex gap-x-3 text-sm md:text-lg lg:text-2xl list-none gap-x-5 font-light ${JosefinSans.className}`}>
+        <div className={` ${JosefinSans.className} hidden md:flex gap-x-3 text-sm md:text-xl lg:text-2xl list-none md:gap-x-5 lg:gap-x-7 font-normal ${JosefinSans.className}`}>
           <Link href='/'>Home</Link>
           <Link href='/clubs'>Clubs</Link>
-          <Link href='/semi'>Seminar</Link>
-          <Link href='/article'>Article</Link>
-          <Link href='/other'>Other</Link>
+          <Link href='/prepare'>Seminar</Link>
+          <Link href='/prepare'>Article</Link>
+          <Link href='/prepare'>Other</Link>
         </div>
-        <Link href={'blog/'} className={`btn bg-blue-500 p-1 w-auto h-[30px] ${JosefinSans.className} rounded-sm`}>
-          Sign In
+        <Link href={'/prepare'} className={`btn bg-mauve-700 p-1 w-auto px-2 h-[30px] ${JosefinSans.className} rounded-sm text-center text-white`}>
+          Sigh In
         </Link>
         {/* <FontAwesomeIcon icon={byPrefixAndName.fas['bars']} /> */}
       </section>
@@ -131,7 +151,7 @@ export default function RootLayout({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="utf-8" />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f2f1ec]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${KosugiMaru.className} antialiased`}
       >
 
         <Header />
@@ -142,16 +162,16 @@ export default function RootLayout({
         <Menu />
 
         {/* <Footer /> */}
-        <footer className="bg-[#141b2e] text-[#8593a8] text-center py-6 mt-16 gap-y-10">
+        <footer className="bg-[#141b2e] text-[#8593a8] text-center py-6 mt-16 gap-y-10 z-0">
           <section className="w-fit h-fit item-center justify-center m-auto bg-[#232E40] py-4 px-3 md: py-3, px-4 gap rounded-[7px]">
 
             <div className="flex justify-center pb-3">
               <div className="animate-pulse h-3 w-3 bg-blue-500 rounded-full"></div>
             </div>
-            <p className="text-sm md:text-normal">Server Running...</p>
+            <p className={`${UbuntuFont.className} text-sm md:text-normal`}>Server Running...</p>
           </section>
 
-          <p className="text-sm pt-5 pb-30 md:pb-0">
+          <p className={`${JosefinSans.className} text-sm pt-5 pb-30 md:pb-0`}>
             © 2026 Dokkyo-Info. All rights reserved.
           </p>
         </footer>
@@ -161,10 +181,13 @@ export default function RootLayout({
   );
 }
 
-function Menu(){
-  return(
-    <div className=" m-0 justify-center md:hidden fixed bottom-10 w-2/3 rounded-full h-5 bg-lime-600">
-
+function Menu() {
+  return (
+    <div className="m-auto flex justify-center text-center md:hidden fixed bottom-10 left-1/2 -translate-x-1/2 w-2/3 h-fit py-3 rounded-full gap-5 text-3xl bg-white shadow-2xl z-1">
+      <Link href='/'><FontAwesomeIcon icon={faHouse} /></Link>
+      <Link href='/clubs'><FontAwesomeIcon icon={faPeopleRobbery} /></Link>
+      <Link href='/prepare'><FontAwesomeIcon icon={faChalkboardUser} /></Link>
+      <Link href='/prepare'><FontAwesomeIcon icon={faSchool} /></Link>
     </div>
   )
 }

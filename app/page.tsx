@@ -4,8 +4,24 @@ import { useState, useEffect, use } from "react"
 import { clubList, semiList, Club, Semi } from './data'
 import Link from 'next/link'
 import Image from 'next/image'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPeopleRobbery, faChalkboardUser, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
+
+import { Josefin_Sans, Noto_Sans_JP } from "next/font/google";
 
 
+const JosefinSans = Josefin_Sans({
+  style: "normal",
+  subsets: ["latin"],
+  variable: "--font-JosefinSans"
+})
+
+const NotoSansJp = Noto_Sans_JP({
+  style: "normal",
+  subsets: ["latin"],
+  variable: "--font-NotoSansJp"
+})
 // 設計　ヘッダー→サークル→ゼミ→記事→
 
 
@@ -53,7 +69,7 @@ export function Tag({ groupTag, setKeyword }: TagProps) {
         <button
           key={tag}
           onClick={() => setKeyword(tag)}
-          className="px-2 py-1 text-xs md:text-sm bg-green-400 transition-colors duration-300 rounded-md hover:bg-green-500"
+          className="px-2 py-1 border-gray-400 border-2 text-[11px] md:text-[15px] transition-colors duration-300 rounded-lg hover:border-gray-600"
         >
           #{tag}
         </button>
@@ -62,6 +78,7 @@ export function Tag({ groupTag, setKeyword }: TagProps) {
   )
 }
 
+// この関数をもう少し楽に書く方法を模索する
 export function ClubClassify({ clubClass, setKeyword }: ClassCulb) {
   return (
     <div className="flex flex-wrap gap-1 md:flex">
@@ -69,55 +86,61 @@ export function ClubClassify({ clubClass, setKeyword }: ClassCulb) {
         if (clubClass === '非公認') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-red-300 py-1 px-2 rounded-full border-1 border-red-400">{clubClass}</div>
-            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-rose-300 hover:bg-rose-400 transition duration-300 py-1 px-2 rounded-full border-1 border-red-400" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[10px] md:text-[12px] text-[#fff] w-fit h-fit  bg-rose-300 hover:bg-rose-400 transition duration-300 py-1 px-2 rounded-full border-1 border-red-400" onClick={() => setKeyword?.(clubClass)}><b>{clubClass}</b></button>
           )
         } else if (clubClass === '公認') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-green-400 py-1 px-2 rounded-full border-1 border-green-500">{clubClass}</div>
-            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-green-400 hover:bg-green-500 transition duration-300 py-1 px-2 rounded-full border-1 border-green-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[10px] md:text-[12px] text-[#fff] w-fit h-fit  bg-green-400 hover:bg-green-500 transition duration-300 py-1 px-2 rounded-full border-1 border-green-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+
+          )
+        } else if (clubClass === '準公認') {
+          return (
+            // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-green-400 py-1 px-2 rounded-full border-1 border-green-500">{clubClass}</div>
+            <button key={clubClass} className="text-[12px] md:text-[12px] text-[#fff] w-fit h-fit  bg-indigo-400 hover:bg-indigo-500 transition duration-300 py-1 px-2 rounded-full border-1 border-indigo-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
 
           )
         } else if (clubClass === '体育系') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-blue-400 py-1 px-2 rounded-full border-1 border-blue-500">{clubClass}</div>
-            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-blue-400 hover:bg-blue-500 transition duration-300 py-1 px-2 rounded-full border-1 border-blue-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[12px] md:text-[12px] text-[#fff] w-fit h-fit  bg-blue-400 hover:bg-blue-500 transition duration-300 py-1 px-2 rounded-full border-1 border-blue-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
 
           )
         } else if (clubClass === '文化系') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-yellow-400 py-1 px-2 rounded-full border-1 border-yellow-500">{clubClass}</div>
-            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-yellow-400 hover:bg-yellow-500 transition duration-300 py-1 px-2 rounded-full border-1 border-yellow-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[12px] md:text-[12px] text-[#fff] w-fit h-fit  bg-yellow-400 hover:bg-yellow-500 transition duration-300 py-1 px-2 rounded-full border-1 border-yellow-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
 
           )
         } else if (clubClass === '部活') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-lime-400 py-1 px-2 rounded-full border-1 border-lime-500">{clubClass}</div>
-            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-orange-400 hover:bg-orange-500 transition duration-300 py-1 px-2 rounded-full border-1 border-orange-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[12px] md:text-[12px] text-[#fff] w-fit h-fit  bg-orange-400 hover:bg-orange-500 transition duration-300 py-1 px-2 rounded-full border-1 border-orange-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
 
           )
         } else if (clubClass === 'サークル') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-violet-400 py-1 px-2 rounded-full border-1 border-violet-500">{clubClass}</div>
-            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-purple-400 hover:bg-purple-500 transition duration-300 py-1 px-2 rounded-full border-1 border-purple-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[12px] md:text-[12px] text-[#fff] w-fit h-fit  bg-purple-400 hover:bg-purple-500 transition duration-300 py-1 px-2 rounded-full border-1 border-purple-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
 
           )
         } else if (clubClass === '公的団体') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-[#3e4957] py-1 px-2 rounded-full border-1 border-[#141b2a]">{clubClass}</div>
-            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-[#3e4957] hover:bg-[#141b2a] transition duration-300 py-1 px-2 rounded-full border-1 border-[#141b2a]" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[12px] md:text-[12px] text-[#fff] w-fit h-fit  bg-[#3e4957] hover:bg-[#141b2a] transition duration-300 py-1 px-2 rounded-full border-1 border-[#141b2a]" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
 
           )
         } else if (clubClass === '学生団体' || clubClass === 'インカレ') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-taupe-400 py-1 px-2 rounded-full border-1 border-taupe-500">{clubClass}</div>
-            <button key={clubClass} className="text-[8px] md:text-[12px] text-[#fff] w-fit h-fit  bg-slate-400 hover:bg-slate-500 transition duration-300 py-1 px-2 rounded-full border-1 border-slate-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[12px] md:text-[12px] text-[#fff] w-fit h-fit  bg-slate-400 hover:bg-slate-500 transition duration-300 py-1 px-2 rounded-full border-1 border-slate-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
 
           )
         } else {
           return (
             <button
               key={clubClass}
-              className="text-[8px] md:text-[12px] text-[#000] w-fit h-fit  bg-white py-1 px-2 rounded-full border-1 hover:bg-taupe-900 hover:text-white transition duration-300"
+              className="text-[12px] md:text-[12px] text-[#000] w-fit h-fit  bg-white py-1 px-2 rounded-full border-1 hover:bg-taupe-900 hover:text-white transition duration-300"
               onClick={() => setKeyword?.(clubClass)}
             >
               {clubClass}
@@ -176,59 +199,69 @@ export default function App() {
   }, [keyword])
 
   return (
-    <>
-      <section>
-        <h1>textext</h1>
-      </section>
+    <div className="bg-white">
+      {/* <section className="m-auto justify-center text-center py-20 md:py-30 lg: py40 bg-[url('/d_foto.jpg')] bg-cover bg-center font-bold text-3xl">
+      </section> */}
+      <div className="m-auto text-center text-lg pt-10 pb-5 md:py-20">
+        <p className="text-xl md:text-3xl pb-2">コミュニティを探してみよう！</p>
+        <p className="text-base md:text-xl">きっとピッタリな場所が見つかる。</p>
+      </div>
+      <div className="flex m-auto justify-center px-10 pt-10">
+        <input
+          type="text"
+          placeholder="検索してみよう！"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          className="text-sm rounded-lg w-49/50 h-fit py-1 md:py-3 pl-4 border-2 border-sky-200 hover:border-sky-400 transition duration-300 focus:outline-none focus:border-sky-3000"
+        />
+      </div>
 
-      <input
-        type="text"
-        placeholder="検索してみよう！"
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        className="shadow-md rounded-sm pl-10 border-2 border-sky-200 hover:border-sky-400 focus:outline-none text-sm"
-      />
 
       {/* 複数タグ選択も今後実装予定（useStateを使用） */}
-
-      {keyword && (
-        <>
-          <div className="flex items-center gap-3 mt-2">
-            <span className="text-sm text-gray-500 pr-5">
-              # {keyword} で検索中
-              {/* { if (keyword === [clubList.tag]) {
+      {/* <section className="flex justify-between md:px-30"> */}
+        {keyword && (
+          <>
+            <div className="flex items-center gap-3 pl-10 pb-1">
+              <span className="text-sm md:text-md text-gray-500 pr-2">
+                # {keyword} で検索中
+                {/* { if (keyword === [clubList.tag]) {
                 return(<p>{keyword}</p>)
               }} */}
-            </span>
+              </span>
 
-            <button
-              onClick={() => setKeyword("")}
-              className="text-sm text-red-500 hover:underline"
-            >
-              × 検索解除
-            </button>
+              <button
+                onClick={() => setKeyword("")}
+                className="text-sm md:text-md text-red-500 hover:underline"
+              >
+                × 検索解除
+              </button>
+            </div>
+          </>
+        )}
+        <div className="flex-wrap pb-10 pl-5">
+          {/* <p className="text-sm md:text-base h-fit">人気上位のタグ：</p> */}
+          <div>
+            {["初心者歓迎", "仲良し", "大会あり"].map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setKeyword(tag)}
+                className="px-3 py-1 border-gray-300 border-2 rounded-full transition-colors duration-300 hover:bg-gray-200 hover:border-gray-400 size-auto text-[12px] md:text-base"
+              >
+                #{tag}
+              </button>
+            ))}
           </div>
-        </>
-      )}
-      <div className="flex-wrap my-3 pb-10 pl-5">
-        <p className="text-sm md:text-base h-fit">人気上位のタグ：</p>
-        <div className="gap-2 px-5">
-          {["初心者歓迎", "仲良し", "大会あり"].map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setKeyword(tag)}
-              className="px-3 py-1 bg-gray-200 rounded-full transition-colors duration-300 hover:bg-green-400 size-auto text-[12px] md:text-base"
-            >
-              #{tag}
-            </button>
-          ))}</div>
+        </div>
+      {/* </section> */}
 
-      </div>
-      <section> {/* 部活サークル等の表示。ただし、このページでは４枚程度を表示する。 */}
-        <p>部活・サークル</p>
+
+      <section className="pb-20"> {/* 部活サークル等の表示。ただし、このページでは４枚程度を表示する。 */}
+        <p className="pl-5 md:pl-7 lg:pl-30 font-bold text-2xl">
+          <FontAwesomeIcon icon={faPeopleRobbery} className="text-3xl pr-2 md:pr-5" />部活・サークル
+        </p>
         <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center p-6 md:max-w-300 sm:max-w-150">
           {randomClubs.length === 0 && (
-            <p className="col-span-full text-center text-gray-400">
+            <p className="col-span-full text-center text-gray-400 py-30">
               該当する団体がありません
             </p>
           )}
@@ -267,12 +300,13 @@ export default function App() {
               // </Link>
               <div
                 key={club.id}
-                className="p-3 rounded-xl shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-md">
+                className="p-3 bg-white rounded-xl shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
                 <Link href={`/clubs/${club.slug}`}>
                   <List
                     imagePath={club.imagePath}
                     name={club.name}
                     date={club.date}
+                    location={club.location}
                     explain={club.explain}
                   />
                 </Link>
@@ -307,11 +341,20 @@ export default function App() {
 
 
 
-      <section> {/* ゼミの表示。部活セクションと同じく、４枚程度を表示 */}
-        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-3 gap-6 p-6">
+      <section>
+        <p className="pl-5 md:pl-7 lg:pl-30 font-bold text-2xl">
+          <FontAwesomeIcon icon={faChalkboardUser} className="text-3xl pr-5" />学部ゼミ・自主ゼミ
+        </p>
+        {randomSemi.length === 0 && (
+          <p className="col-span-full text-center text-gray-400 py-30">
+            該当するゼミがありません
+          </p>
+        )}
+        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center p-6 md:max-w-300 sm:max-w-150">
           {randomSemi.map((semi) => (
             <Link
-              href={`/semi/${semi.name}`}
+              // href={`/semi/${semi.name}`}
+              href={"/prepare"}
               key={semi.id}
             >
               <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition duration-300 rounded-md">
@@ -332,12 +375,12 @@ export default function App() {
       <section></section>
 
 
-    </>
+    </div>
 
   )
 }
 
-export function List({ imagePath, name, date, explain }: { imagePath: string, name: string, date: string, explain: string }) {
+export function List({ imagePath, name, date, location, explain }: { imagePath: string, name: string, date: string, location?: string, explain: string }) {
   return (
     <>
       <div className="m-auto justify-center text-center item-center">
@@ -348,13 +391,19 @@ export function List({ imagePath, name, date, explain }: { imagePath: string, na
           width={100}
           height={100}
         />
-        <h1 className="pt-10 text-base, md:text-lg lg:text-2xl font-bold">
+        <h1 className="pt-7 text-xl lg:text-2xl font-bold">
           {name}
         </h1>
-        <p className="pt-2 text-sm md:text-base lg:text-xl">
-          {date}
-        </p>
-        <p className="pb-5 text-sm md:text-base lg:text-xl">
+        <div className="flex flex-wrap justify-center gap-x-2 md:gap-x-3 text-sm md:text-base py-3">
+          <p>
+            <FontAwesomeIcon icon={faClock} />{date}
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faLocationDot} />{location}
+          </p>
+        </div>
+
+        <p className="pb-5 text-sm md:text-base lg:text-lg">
           {explain}
         </p>
       </div>

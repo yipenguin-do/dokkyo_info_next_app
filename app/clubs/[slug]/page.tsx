@@ -1,7 +1,9 @@
 import { clubList } from "../../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { ClubClassify } from "../../page";
+import { faLocationDot, faYenSign } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -27,7 +29,7 @@ export default async function DetailPage({ params }: Props) {
                     <img
                         src={club.imagePath}
                         alt={club.name}
-                        className="w-70 md:w-100 lg:w-150 m-auto justify-center rounded-lg shadow-xl"
+                        className="w-70 md:w-100 lg:w-120 m-auto justify-center rounded-lg shadow-xl"
                     />
                 </div>
 
@@ -35,7 +37,7 @@ export default async function DetailPage({ params }: Props) {
                     <div className="justify-between pb-2">
                         {/* <div className="text-[10px] text-[#fff] w-fit h-fit  bg-red-300 py-1 px-2 rounded-full border-1 border-red-400">非公認</div> */}
                         {/* したの処理で、データにある文字位よって色を変える機能を別関数で作るのも要検討 */}
-                        
+
                         {/* ClubClassifyの非関数版 */}
                         {/* <div className="flex flex-wrap gap-1 md:flex">
                             {club.class.split(", ").map((clubClass) => {
@@ -88,13 +90,18 @@ export default async function DetailPage({ params }: Props) {
                         </div> */}
 
                         <ClubClassify
-                            clubClass = {club.class}
+                            clubClass={club.class}
                         />
                         {/* <div className="text-sm rounded-full bg-blue-300 text-center py-2 px-3 w-fit">文化系</div> */}
-                        <h1 className="text-2xl md:text-3xl item-center pt-2">{club.name}</h1>
+                        <h1 className="text-2xl md:text-3xl item-center pt-2 font-bold">{club.name}</h1>
                     </div>
 
-                    <p className="text-lg pb-4 pt-5">活動日：{club.date}</p>
+                    <div className="text-lg pt-2 pb-5">
+                        <p><FontAwesomeIcon icon={faClock} />{club.date}</p>
+                        <p><FontAwesomeIcon icon={faLocationDot} />{club.location}</p>
+                        <p><FontAwesomeIcon icon={faYenSign} />{club.costs}</p>
+                    </div>
+
                     {/* <p>
                 {club.detail.split("\n").map((line, i) => {
                     <span key = {i}>
@@ -103,14 +110,19 @@ export default async function DetailPage({ params }: Props) {
                     </span>
                 })}
             </p> */}
-                    <p>部費：{club.costs}</p>
-                    <p className="">概要：{club.detail.replace(/\\n/g, "\n")}</p>
+                    <p className="text-base">{club.detail.replace(/\\n/g, "\n")}</p>
                 </div>
-
-                <section className="flex m-auto gap-x-10 justify-center pt-10">
-                    <a href="instagram"><div className="w-10 h-10 rounded-full bg-red-500"></div></a>
-                    <a href="twitter"><div className="w-10 h-10 rounded-full bg-blue-500 hover:bg-blue-400 transition duration-300"><FontAwesomeIcon icon={faTwitter} className="text-[20px] text-center" color="#fff" /></div></a>
-
+                <section className="flex m-auto justify-center gap-x-5 pt-10 text-center">
+                    {club.sns.split(", ").map(
+                        (snsLink) => {
+                            if (snsLink.includes("https://www.instagram.com")) {
+                                return (<a key={snsLink} href={snsLink} target="_blank"><div className="w-20 h-20 md:w-30 md:h-30 p-2 md:p-5 text-[40px] md:text-[50px] rounded-full text-white bg-red-400 hover:bg-red-500 transition duration-300 shadow-xl hover:shadow-2xl"><FontAwesomeIcon icon={faInstagram} className="w-10 h-10" /></div></a>)
+                            } else if (snsLink.includes("https://twitter.com") || snsLink.includes("https://x.com")) {
+                                return (<a key={snsLink} href={snsLink} target="_blank"><div className="w-20 h-20 md:w-30 md:h-30 p-2 md:p-5 text-[40px] md:text-[50px] rounded-full text-white bg-blue-400 hover:bg-blue-500 transition duration-300 shadow-xl hover:shadow-2xl"><FontAwesomeIcon icon={faTwitter} color="#fff" /></div></a>)
+                            } else {
+                                return (<a key={snsLink} href={snsLink} target="_blank"><div className="w-fit h-fit py-7 px-5 md:py-12 md:px-10 bg-green-300 hover:bg-green-400 text-[#fff] text-base md:text-xl rounded-lg transition duration-300 shadow-xl hover:shadow-2xl"><b>もっとみる</b></div></a>)
+                            }
+                        })}
                 </section>
             </section>
         </>
