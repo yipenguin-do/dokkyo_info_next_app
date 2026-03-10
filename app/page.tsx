@@ -199,7 +199,7 @@ export default function App() {
   }, [keyword])
 
   return (
-    <div className="bg-white dark:bg-[#141b2a]">
+    <div>
     {/* <div className="bg-[#0a101d]"> */}
       {/* <section className="m-auto justify-center text-center py-20 md:py-30 lg: py40 bg-[url('/d_foto.jpg')] bg-cover bg-center font-bold text-3xl">
       </section> */}
@@ -213,7 +213,7 @@ export default function App() {
           placeholder="検索してみよう！"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
-          className="text-sm rounded-xl w-full h-fit py-1 md:py-3 pl-4 border-2 border-[#00D2DA] hover:border-sky-400 transition duration-300 focus:outline-none focus:border-sky-3000"
+          className="text-sm rounded-lg md:rounded-xl w-full h-fit py-2 md:py-3 pl-4 border-2 border-[#00D2DA] hover:border-sky-400 transition duration-300 focus:outline-none focus:border-sky-3000"
         />
       </div>
 
