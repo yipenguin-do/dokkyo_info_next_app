@@ -1,7 +1,7 @@
 import { clubList } from "../../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { ClubClassify } from "../../page";
+import { ClubClassify } from "../../HomeClient";
 import { faLocationDot, faYenSign } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 

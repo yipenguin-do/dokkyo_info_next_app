@@ -49,13 +49,12 @@ const NotoSansJp = Noto_Sans_JP({
 })
 
 export const metadata: Metadata = {
-  title: "Dokkyo-Info.",
-  description: "獨協大学の部活・サークル情報がまとめられています。",
-  openGraph: {
-    title: "Dokkyo-Info.",
-    description: "獨協大学の部活・サークル情報がまとめられています。",
-    images: "/images/dokkyo-info-logo.png"
-  }
+  metadataBase: new URL("https://dokkyo-info.vercel.app"),
+  title: {
+    default: "Dokkyo-Info.",
+    template: "%s | Dokkyo-Info.",
+  },
+  description: "獨協大学の部活とゼミをまとめて探せるサイト"
 };
 
 function Logo() {

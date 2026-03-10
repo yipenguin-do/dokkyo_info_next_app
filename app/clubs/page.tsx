@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { clubList } from "../data";
-import { List, Badge, Tag } from "../page"
+import { List, Badge, Tag } from "../HomeClient"
 import Link from 'next/link';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
