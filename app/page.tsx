@@ -86,12 +86,12 @@ export function ClubClassify({ clubClass, setKeyword }: ClassCulb) {
         if (clubClass === '非公認') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-red-300 py-1 px-2 rounded-full border-1 border-red-400">{clubClass}</div>
-            <button key={clubClass} className="text-[10px] md:text-[12px] text-[#fff] w-fit h-fit  bg-rose-300 hover:bg-rose-400 transition duration-300 py-1 px-2 rounded-full border-1 border-red-400" onClick={() => setKeyword?.(clubClass)}><b>{clubClass}</b></button>
+            <button key={clubClass} className="text-[12px] md:text-[12px] text-[#fff] w-fit h-fit  bg-rose-300 hover:bg-rose-400 transition duration-300 py-1 px-2 rounded-full border-1 border-red-400" onClick={() => setKeyword?.(clubClass)}><b>{clubClass}</b></button>
           )
         } else if (clubClass === '公認') {
           return (
             // <div key={clubClass} className="text-[8px] md:text-[10px] text-[#fff] w-fit h-fit  bg-green-400 py-1 px-2 rounded-full border-1 border-green-500">{clubClass}</div>
-            <button key={clubClass} className="text-[10px] md:text-[12px] text-[#fff] w-fit h-fit  bg-green-400 hover:bg-green-500 transition duration-300 py-1 px-2 rounded-full border-1 border-green-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
+            <button key={clubClass} className="text-[12px] md:text-[12px] text-[#fff] w-fit h-fit  bg-green-400 hover:bg-green-500 transition duration-300 py-1 px-2 rounded-full border-1 border-green-500" onClick={() => setKeyword?.(clubClass)}>{clubClass}</button>
 
           )
         } else if (clubClass === '準公認') {
@@ -206,7 +206,7 @@ export default function App() {
       <div className="m-auto text-center text-lg pt-10 pb-5 md:py-20">
         <p className="text-lg md:text-3xl pb-2">大学の部活とゼミをまとめて探せるサイト</p>
         <p className="text-base md:text-xl">きっとピッタリな場所が見つかる。</p>
-        <div className="text-sm text-gray-400 pt-5">
+        <div className="text-sm text-gray-500 pt-5">
           <p>※現在はデモページです。</p>
           <p>掲載申請は<strong><u><a href="https://www.instagram.com/dokkyo_info?igsh=bnF0dXRtbmUxOG9n&utm_source=qr">Instagram</a></u></strong>のDMにて受け付けています。</p>
         </div>
