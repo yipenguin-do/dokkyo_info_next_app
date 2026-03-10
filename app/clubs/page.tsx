@@ -13,13 +13,22 @@ export default function ClubPage() {
 
   return (
     <div className="dark:bg-[#0B0F17]">
-      <div className="pl-5">
+      <div className="m-auto text-center text-2xl md:text-[30px] pb-20 pt-10">
+        <h1>部活・サークル一覧</h1>
+
+        <div className="text-sm text-gray-400 pt-5">
+          <p>※現在はデモページです。</p>
+          <p>掲載申請は<strong><u><a href="https://www.instagram.com/dokkyo_info?igsh=bnF0dXRtbmUxOG9n&utm_source=qr">Instagram</a></u></strong>のDMにて受け付けています。</p>
+        </div>
+
+      </div>
+      <div className="px-5">
         <input
           type="text"
-          placeholder="検索してみよう！"
+          placeholder="探してみる"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
-          className="text-sm rounded-lg w-50 h-fit py-1 pl-2 border-2 border-sky-200 hover:border-sky-400 transition duration-300 focus:outline-none focus:border-sky-3000"
+          className="text-sm rounded-lg md:rounded-xl w-full h-fit py-2 md:py-3 pl-4 border-2 border-[#00D2DA] hover:border-sky-400 transition duration-300 focus:outline-none focus:border-sky-3000"
         />
       </div>
 
@@ -45,7 +54,7 @@ export default function ClubPage() {
           </div>
         </>
       )}
-      <div className="flex-wrap my-3 pb-10 pl-5">
+      <div className="flex-wrap my-3 pb-5 pl-5">
         {/* <p className="text-sm md:text-base h-fit">人気上位のタグ：</p> */}
         <div className="">
           {["初心者歓迎", "仲良し", "大会あり"].map((tag) => (
@@ -66,7 +75,7 @@ export default function ClubPage() {
       </p>
 
       <section className="pb-40">
-        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center p-6 md:max-w-300 sm:max-w-150">
+        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center md:max-w-200 md:p-5 lg:max-w-300 max-w-90">
           {clubList.filter((club) => club.name.toLowerCase().includes(keyword.toLowerCase())).length === 0 && (
             <p className="col-span-full text-center text-gray-400 py-30">
               該当する団体がありません
@@ -75,29 +84,29 @@ export default function ClubPage() {
           {clubList.filter(
             (club) => club.name.toLowerCase().includes(keyword.toLowerCase())
           ).map(club => (
-              <div
-                key={club.id}
-                className="p-3 bg-white rounded-xl shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-md">
-                <Link href={`/clubs/${club.slug}`}>
-                  <List
-                    imagePath={club.imagePath}
-                    name={club.name}
-                    date={club.date}
-                    location={club.location}
-                    explain={club.explain}
-                  />
-                </Link>
-
-                <Badge
-                  groupClass={club.class}
-                  setKeyword={setKeyword}
+            <div
+              key={club.id}
+              className="p-2 rounded-xl border-gray-200 dark:border-[#3B4457] border-1 shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
+              <Link href={`/clubs/${club.slug}`}>
+                <List
+                  imagePath={club.imagePath}
+                  name={club.name}
+                  date={club.date}
+                  location={club.location}
+                  explain={club.explain}
                 />
-                <Tag
-                  groupTag={club.tag}
-                  setKeyword={setKeyword}
-                />
+              </Link>
 
-                {/* <div className="flex gap-1 flex-wrap mt-2">
+              <Badge
+                groupClass={club.class}
+                setKeyword={setKeyword}
+              />
+              <Tag
+                groupTag={club.tag}
+                setKeyword={setKeyword}
+              />
+
+              {/* <div className="flex gap-1 flex-wrap mt-2">
                   {club.tag.split(", ").map((tag) => (
                     <button
                       key={tag}
@@ -109,7 +118,7 @@ export default function ClubPage() {
                   ))}
                 </div> */}
 
-              </div>
+            </div>
 
           ))}
         </div>

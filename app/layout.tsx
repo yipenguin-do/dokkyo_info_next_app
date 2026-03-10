@@ -58,7 +58,7 @@ function Logo() {
   const imgPath = '/images/clubs/article/logo.png'
 
   return (
-    <div className={`${JosefinSans.className} text-4xl md:text-5xl lg:text-6xl py-4 px-4 font-light`}>
+    <div className={`${JosefinSans.className} text-4xl md:text-5xl lg:text-6xl py-6 px-4 font-light`}>
       {/* <img
         src={imgPath}
         alt="Logo"
@@ -75,7 +75,7 @@ function Logo() {
 export function Header() {
 
   return (
-    <div className="flex justify-between item-center size-auto dark:bg-#1a212f">
+    <div className="flex justify-between item-center size-auto dark:bg-[#0B0F17]">
       <Link
         href={'/'}
         className="object-fit"

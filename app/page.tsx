@@ -204,13 +204,17 @@ export default function App() {
       {/* <section className="m-auto justify-center text-center py-20 md:py-30 lg: py40 bg-[url('/d_foto.jpg')] bg-cover bg-center font-bold text-3xl">
       </section> */}
       <div className="m-auto text-center text-lg pt-10 pb-5 md:py-20">
-        <p className="text-lg md:text-2xl pb-2">大学の部活とゼミをまとめて探せるサイト</p>
+        <p className="text-lg md:text-3xl pb-2">大学の部活とゼミをまとめて探せるサイト</p>
         <p className="text-base md:text-xl">きっとピッタリな場所が見つかる。</p>
+        <div className="text-sm text-gray-400 pt-5">
+          <p>※現在はデモページです。</p>
+          <p>掲載申請は<strong><u><a href="https://www.instagram.com/dokkyo_info?igsh=bnF0dXRtbmUxOG9n&utm_source=qr">Instagram</a></u></strong>のDMにて受け付けています。</p>
+        </div>
       </div>
-      <div className="flex m-auto justify-center px-10 pt-10 pb-1">
+      <div className="flex m-auto justify-center px-5 md:px-10 pt-10 pb-1">
         <input
           type="text"
-          placeholder="検索してみよう！"
+          placeholder="探してみる"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
           className="text-sm rounded-lg md:rounded-xl w-full h-fit py-2 md:py-3 pl-4 border-2 border-[#00D2DA] hover:border-sky-400 transition duration-300 focus:outline-none focus:border-sky-3000"

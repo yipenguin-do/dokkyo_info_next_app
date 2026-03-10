@@ -9,7 +9,7 @@ import { useState } from "react"
 export default function Prepare() {
     return (
         <>
-            <div className="m-auto text-center pt-20 pb-20">
+            <div className="m-auto text-center pt-20 pb-20                                                                              dark:bg-[#0B0F17]">
                 {/* <FontAwesomeIcon icon={faFaceFrown} className="text-[100px]" /> */}
                 <FontAwesomeIcon icon={faPersonDigging} className="text-[100px] pb-7" />
                 <p className="text-[20px] md:text-[30px]">このページは現在準備中です。</p>
