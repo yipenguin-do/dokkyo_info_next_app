@@ -199,7 +199,7 @@ export default function App() {
   }, [keyword])
 
   return (
-    <div className="bg-white dark:bg-[#0a101d]">
+    <div className="dark:bg-[#1a212f] pb-16">
     {/* <div className="bg-[#0a101d]"> */}
       {/* <section className="m-auto justify-center text-center py-20 md:py-30 lg: py40 bg-[url('/d_foto.jpg')] bg-cover bg-center font-bold text-3xl">
       </section> */}
@@ -260,7 +260,7 @@ export default function App() {
         <p className="pl-5 md:pl-7 lg:pl-30 font-bold text-2xl">
           <FontAwesomeIcon icon={faPeopleRobbery} className="text-3xl pr-2 md:pr-5" />部活・サークル
         </p>
-        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center p-6 md:max-w-300 max-w-90">
+        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center md:max-w-200 md:p-5 lg:max-w-300 max-w-90">
           {randomClubs.length === 0 && (
             <p className="col-span-full text-center text-gray-400 py-30">
               該当する団体がありません
@@ -301,7 +301,7 @@ export default function App() {
               // </Link>
               <div
                 key={club.id}
-                className="p-3 rounded-xl  border-gray-200 border-1 shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
+                className="p-2 rounded-xl  border-gray-200 border-1 shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
                 <Link href={`/clubs/${club.slug}`}>
                   <List
                     imagePath={club.imagePath}
@@ -336,7 +336,7 @@ export default function App() {
               </div>
             ))}
         </div>
-      </section >
+      </section>
 
 
 
@@ -358,7 +358,7 @@ export default function App() {
               href={"/prepare"}
               key={semi.id}
             >
-              <div className="p-6 rounded-xl shadow-md hover:shadow-2xl transition duration-300 rounded-md">
+              <div className="p-3 rounded-xl shadow-md hover:shadow-2xl transition duration-300 rounded-md">
                 <List
                   imagePath={semi.imagePath}
                   name={semi.name}
@@ -370,12 +370,6 @@ export default function App() {
           ))}
         </div>
       </section>
-      <section> {/* ゼミの表示。部活セクションと同じく、４枚程度を表示 */}
-
-      </section>
-      <section></section>
-
-
     </div>
 
   )

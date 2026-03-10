@@ -75,7 +75,7 @@ function Logo() {
 export function Header() {
 
   return (
-    <div className="flex justify-between item-center size-auto">
+    <div className="flex justify-between item-center size-auto dark:bg-#1a212f">
       <Link
         href={'/'}
         className="object-fit"
@@ -162,7 +162,7 @@ export default function RootLayout({
         <Menu />
 
         {/* <Footer /> */}
-        <footer className="bg-[#141b2e] text-[#8593a8] text-center py-6 mt-16 gap-y-10 z-0">
+        <footer className="bg-[#141b2e] text-[#8593a8] text-center py-6 gap-y-10 z-0">
           <section className="w-fit h-fit item-center justify-center m-auto bg-[#232E40] py-4 px-3 md: py-3, px-4 gap rounded-[7px]">
 
             <div className="flex justify-center pb-3">
