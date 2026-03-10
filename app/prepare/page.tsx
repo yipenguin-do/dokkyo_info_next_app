@@ -120,7 +120,7 @@ function Janken() {
                             {userHand !== null && (
                                 <FontAwesomeIcon
                                     icon={hands[userHand]}
-                                    className="text-6xl mt-2 text-[#0a101d]"
+                                    className="text-6xl mt-2"
                                 />
                             )}
                         </div>
@@ -130,7 +130,7 @@ function Janken() {
                             {computerHand !== null && (
                                 <FontAwesomeIcon
                                     icon={hands[computerHand]}
-                                    className="text-6xl mt-2 text-[#0a101d]"
+                                    className="text-6xl mt-2"
                                 />
                             )}
                         </div>
