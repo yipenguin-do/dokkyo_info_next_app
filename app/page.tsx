@@ -199,20 +199,21 @@ export default function App() {
   }, [keyword])
 
   return (
-    <div className="bg-white">
+    // <div className="bg-white">
+    <div>
       {/* <section className="m-auto justify-center text-center py-20 md:py-30 lg: py40 bg-[url('/d_foto.jpg')] bg-cover bg-center font-bold text-3xl">
       </section> */}
       <div className="m-auto text-center text-lg pt-10 pb-5 md:py-20">
-        <p className="text-xl md:text-3xl pb-2">コミュニティを探してみよう！</p>
+        <p className="text-lg md:text-2xl pb-2">大学の部活とゼミをまとめて探せるサイト</p>
         <p className="text-base md:text-xl">きっとピッタリな場所が見つかる。</p>
       </div>
-      <div className="flex m-auto justify-center px-10 pt-10">
+      <div className="flex m-auto justify-center px-10 pt-10 bg-blue-200 pb-1">
         <input
           type="text"
           placeholder="検索してみよう！"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
-          className="text-sm rounded-lg w-49/50 h-fit py-1 md:py-3 pl-4 border-2 border-sky-200 hover:border-sky-400 transition duration-300 focus:outline-none focus:border-sky-3000"
+          className="text-sm rounded-xl w-full h-fit py-1 md:py-3 pl-4 border-2 border-[#00D2DA] hover:border-sky-400 transition duration-300 focus:outline-none focus:border-sky-3000"
         />
       </div>
 
@@ -238,9 +239,9 @@ export default function App() {
             </div>
           </>
         )}
-        <div className="flex-wrap pb-10 pl-5">
+        <div className="flex-wrap pb-10 pl-13">
           {/* <p className="text-sm md:text-base h-fit">人気上位のタグ：</p> */}
-          <div>
+          {/* <div>
             {["初心者歓迎", "仲良し", "大会あり"].map((tag) => (
               <button
                 key={tag}
@@ -250,7 +251,7 @@ export default function App() {
                 #{tag}
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
       {/* </section> */}
 
@@ -259,7 +260,7 @@ export default function App() {
         <p className="pl-5 md:pl-7 lg:pl-30 font-bold text-2xl">
           <FontAwesomeIcon icon={faPeopleRobbery} className="text-3xl pr-2 md:pr-5" />部活・サークル
         </p>
-        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center p-6 md:max-w-300 sm:max-w-150">
+        <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center p-6 md:max-w-300 max-w-90">
           {randomClubs.length === 0 && (
             <p className="col-span-full text-center text-gray-400 py-30">
               該当する団体がありません
@@ -300,7 +301,7 @@ export default function App() {
               // </Link>
               <div
                 key={club.id}
-                className="p-3 bg-white rounded-xl shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
+                className="p-3 rounded-xl  border-gray-200 border-1 shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
                 <Link href={`/clubs/${club.slug}`}>
                   <List
                     imagePath={club.imagePath}
@@ -357,7 +358,7 @@ export default function App() {
               href={"/prepare"}
               key={semi.id}
             >
-              <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition duration-300 rounded-md">
+              <div className="p-6 rounded-xl shadow-md hover:shadow-2xl transition duration-300 rounded-md">
                 <List
                   imagePath={semi.imagePath}
                   name={semi.name}
@@ -387,14 +388,14 @@ export function List({ imagePath, name, date, location, explain }: { imagePath: 
         <img
           src={imagePath}
           alt={name}
-          className="w-full rounded-lg justify-center item-center shadow-xl"
+          className="w-full rounded-lg justify-center shadow-md border-1 border-gray-200"
           width={100}
           height={100}
         />
-        <h1 className="pt-7 text-xl lg:text-2xl font-bold">
+        <h1 className="pt-3 text-xl lg:text-2xl font-bold">
           {name}
         </h1>
-        <div className="flex flex-wrap justify-center gap-x-2 md:gap-x-3 text-sm md:text-base py-3">
+        <div className="flex flex-wrap justify-center gap-x-2 md:gap-x-3 text-sm md:text-base py-2">
           <p>
             <FontAwesomeIcon icon={faClock} />{date}
           </p>
