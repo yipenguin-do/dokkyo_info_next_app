@@ -301,7 +301,7 @@ export default function App() {
               // </Link>
               <div
                 key={club.id}
-                className="p-2 rounded-xl  border-gray-200 border-1 shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
+                className="p-2 rounded-xl border-gray-200 dark:border-[#3B4457] border-1 shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
                 <Link href={`/clubs/${club.slug}`}>
                   <List
                     imagePath={club.imagePath}
@@ -353,6 +353,7 @@ export default function App() {
         )}
         <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center p-6 md:max-w-300 sm:max-w-150">
           {randomSemi.map((semi) => (
+            <div className=" border-gray-200 dark:border-[#3B4457] border-1">
             <Link
               // href={`/semi/${semi.name}`}
               href={"/prepare"}
@@ -367,6 +368,7 @@ export default function App() {
                 />
               </div>
             </Link>
+            </div>
           ))}
         </div>
       </section>
