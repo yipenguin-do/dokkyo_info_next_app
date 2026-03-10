@@ -185,7 +185,7 @@ export const clubList: Club[] = [{
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "週に一度の会議のみ！",
     detail: "図書館で活動しています！本好きの方はぜひ！",
-    sns: "",
+    sns: "disabled",
     class: "公的団体, 文化系",
     tag: "経験者のみ, 仲良し"
 }, {
@@ -198,7 +198,7 @@ export const clubList: Club[] = [{
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "ハッカソン出場！",
     detail: "ハッカソンやアルゴリズム研究やっています！",
-    sns: "",
+    sns: "disabled",
     class: "公認, 文化系, サークル",
     tag: "初心者歓迎, 大会あり"
 }, {
@@ -211,7 +211,7 @@ export const clubList: Club[] = [{
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "獨協大学で珍しい学術団体です！",
     detail: "WEBアプリとか作れるようになれます。",
-    sns: "",
+    sns: "disabled",
     class: "公認, 文化系, サークル, 女子限定",
     tag: "大会あり"
 }, {
@@ -224,7 +224,7 @@ export const clubList: Club[] = [{
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "一部昇格目指して🔥",
     detail: "バスケサークルです！まじゆるくやっています！",
-    sns: "",
+    sns: "disabled",
     class: "学生団体, 体育系",
     tag: "春から大学, 初心者歓迎"
 }, {
@@ -237,7 +237,7 @@ export const clubList: Club[] = [{
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "初心者歓迎！Kpop好き歓迎！",
     detail: "ダンス初心者歓迎！主にKpopとかのダンスやってます！",
-    sns: "",
+    sns: "disabled",
     class: "公認, サークル, 体育系",
     tag: "春から獨協, 初心者歓迎, ほのぼの"
 }, {
@@ -250,7 +250,7 @@ export const clubList: Club[] = [{
     imagePath: makeImagePath('sports', 'noimage'),
     explain: "学内の部活・サークルを統括しています！",
     detail: "学内の部活・サークルに関する業務を統括しています。真面目募集！",
-    sns: "",
+    sns: "disabled",
     class: "公的団体",
     tag: ""
 }]

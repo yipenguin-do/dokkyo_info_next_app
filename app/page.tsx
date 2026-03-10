@@ -69,7 +69,7 @@ export function Tag({ groupTag, setKeyword }: TagProps) {
         <button
           key={tag}
           onClick={() => setKeyword(tag)}
-          className="px-2 py-1 border-gray-400 border-2 text-[11px] md:text-[15px] transition-colors duration-300 rounded-lg hover:border-gray-600"
+          className="px-2 py-1 border-gray-400 border-1 text-[11px] md:text-[15px] transition-colors duration-300 rounded-lg hover:border-gray-600"
         >
           #{tag}
         </button>
@@ -257,7 +257,7 @@ export default function App() {
 
 
       <section className="pb-20"> {/* 部活サークル等の表示。ただし、このページでは４枚程度を表示する。 */}
-        <p className="pl-5 md:pl-7 lg:pl-30 font-bold text-2xl">
+        <p className="pl-5 md:pl-7 lg:pl-30 font-bold text-2xl pb-5">
           <FontAwesomeIcon icon={faPeopleRobbery} className="text-3xl pr-2 md:pr-5" />部活・サークル
         </p>
         <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center md:max-w-200 md:p-5 lg:max-w-300 max-w-90">
@@ -268,37 +268,6 @@ export default function App() {
           )}
           {randomClubs
             .map(club => (
-
-              // <Link
-              //   href={`/clubs/${club.name}`}
-              //   key={club.id}
-              // >
-              //   <div
-              //     className='bg-white p-6 rounded-xl shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-md'
-              //   >
-              //     <List
-              //       imagePath={club.imagePath}
-              //       name={club.name}
-              //       date={club.date}
-              //       explain={club.explain}
-              //     />
-              //     <Badge
-              //       groupClass={club.class}
-              //     />
-              //     <div className="flex gap-2 flex-wrap my-3">
-              //       {club.tag.split(", ").map((tag) => (
-              //         <button
-              //           key={tag}
-              //           onClick={() => setKeyword(tag)}
-              //           className="px-2 py-1 text-sm bg-green-400 rounded-md"
-              //         >
-              //           #{tag}
-              //         </button>
-              //       ))}
-              //     </div>
-              //   </div>
-              //   {/* `/clubs/${club.class}/${club.uniqueID}`みたいな動的ルーティングを導入したい */}
-              // </Link>
               <div
                 key={club.id}
                 className="p-2 rounded-xl border-gray-200 dark:border-[#3B4457] border-1 shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
@@ -353,13 +322,12 @@ export default function App() {
         )}
         <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center p-6 md:max-w-300 sm:max-w-150">
           {randomSemi.map((semi) => (
-            <div className=" border-gray-200 dark:border-[#3B4457] border-1">
             <Link
               // href={`/semi/${semi.name}`}
               href={"/prepare"}
               key={semi.id}
             >
-              <div className="p-3 rounded-xl shadow-md hover:shadow-2xl transition duration-300 rounded-md">
+              <div className="p-3 border-gray-200 dark:border-[#3B4457] border-1 rounded-xl shadow-md hover:shadow-2xl transition duration-300 rounded-md">
                 <List
                   imagePath={semi.imagePath}
                   name={semi.name}
@@ -368,7 +336,6 @@ export default function App() {
                 />
               </div>
             </Link>
-            </div>
           ))}
         </div>
       </section>

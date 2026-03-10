@@ -171,7 +171,7 @@ export default function RootLayout({
             <p className={`${UbuntuFont.className} text-sm md:text-normal`}>Server Running...</p>
           </section>
 
-          <p className={`${JosefinSans.className} text-sm pt-5 pb-30 md:pb-0`}>
+          <p className={`${JosefinSans.className} text-sm pt-5 pb-20 md:pb-0`}>
             © 2026 Dokkyo-Info. All rights reserved.
           </p>
         </footer>

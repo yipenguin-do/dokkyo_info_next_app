@@ -119,8 +119,10 @@ export default async function DetailPage({ params }: Props) {
                                 return (<a key={snsLink} href={snsLink} target="_blank"><div className="w-20 h-20 md:w-30 md:h-30 p-2 md:p-5 text-[40px] md:text-[50px] rounded-full text-white bg-red-400 hover:bg-red-500 transition duration-300 shadow-xl hover:shadow-2xl"><FontAwesomeIcon icon={faInstagram} className="w-10 h-10" /></div></a>)
                             } else if (snsLink.includes("https://twitter.com") || snsLink.includes("https://x.com")) {
                                 return (<a key={snsLink} href={snsLink} target="_blank"><div className="w-20 h-20 md:w-30 md:h-30 p-2 md:p-5 text-[40px] md:text-[50px] rounded-full text-white bg-blue-400 hover:bg-blue-500 transition duration-300 shadow-xl hover:shadow-2xl"><FontAwesomeIcon icon={faTwitter} color="#fff" /></div></a>)
+                            } else if (snsLink.includes("disabled")) {
+                                return (<div className="pb-15"></div>)
                             } else {
-                                return (<a key={snsLink} href={snsLink} target="_blank"><div className="w-fit h-fit py-7 px-5 md:py-12 md:px-10 bg-green-300 hover:bg-green-400 text-[#fff] text-base md:text-xl rounded-lg transition duration-300 shadow-xl hover:shadow-2xl"><b>もっとみる</b></div></a>)
+                                return (<a key={snsLink} href={snsLink} target="_blank"><div className="w-fit h-fit py-7 px-5 md:py-12 md:px-10 bg-green-400 hover:bg-green-500 text-[#fff] text-base md:text-xl rounded-2xl transition duration-300 shadow-xl hover:shadow-2xl"><b>もっとみる</b></div></a>)
                             }
                         })}
                 </section>
