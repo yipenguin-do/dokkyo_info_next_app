@@ -199,15 +199,15 @@ export default function App() {
   }, [keyword])
 
   return (
-    // <div className="bg-white">
-    <div>
+    // <div className="bg-white dark:bg-[#141b2a]">
+    <div className="bg-[#0a101d]">
       {/* <section className="m-auto justify-center text-center py-20 md:py-30 lg: py40 bg-[url('/d_foto.jpg')] bg-cover bg-center font-bold text-3xl">
       </section> */}
       <div className="m-auto text-center text-lg pt-10 pb-5 md:py-20">
         <p className="text-lg md:text-2xl pb-2">大学の部活とゼミをまとめて探せるサイト</p>
         <p className="text-base md:text-xl">きっとピッタリな場所が見つかる。</p>
       </div>
-      <div className="flex m-auto justify-center px-10 pt-10 bg-blue-200 pb-1">
+      <div className="flex m-auto justify-center px-10 pt-10 pb-1">
         <input
           type="text"
           placeholder="検索してみよう！"
@@ -220,28 +220,28 @@ export default function App() {
 
       {/* 複数タグ選択も今後実装予定（useStateを使用） */}
       {/* <section className="flex justify-between md:px-30"> */}
-        {keyword && (
-          <>
-            <div className="flex items-center gap-3 pl-10 pb-1">
-              <span className="text-sm md:text-md text-gray-500 pr-2">
-                # {keyword} で検索中
-                {/* { if (keyword === [clubList.tag]) {
+      {keyword && (
+        <>
+          <div className="flex items-center gap-3 pl-10 pb-1">
+            <span className="text-sm md:text-md text-gray-500 pr-2">
+              # {keyword} で検索中
+              {/* { if (keyword === [clubList.tag]) {
                 return(<p>{keyword}</p>)
               }} */}
-              </span>
+            </span>
 
-              <button
-                onClick={() => setKeyword("")}
-                className="text-sm md:text-md text-red-500 hover:underline"
-              >
-                × 検索解除
-              </button>
-            </div>
-          </>
-        )}
-        <div className="flex-wrap pb-10 pl-13">
-          {/* <p className="text-sm md:text-base h-fit">人気上位のタグ：</p> */}
-          {/* <div>
+            <button
+              onClick={() => setKeyword("")}
+              className="text-sm md:text-md text-red-500 hover:underline"
+            >
+              × 検索解除
+            </button>
+          </div>
+        </>
+      )}
+      <div className="flex-wrap pb-10 pl-13">
+        {/* <p className="text-sm md:text-base h-fit">人気上位のタグ：</p> */}
+        {/* <div>
             {["初心者歓迎", "仲良し", "大会あり"].map((tag) => (
               <button
                 key={tag}
@@ -252,7 +252,7 @@ export default function App() {
               </button>
             ))}
           </div> */}
-        </div>
+      </div>
       {/* </section> */}
 
 

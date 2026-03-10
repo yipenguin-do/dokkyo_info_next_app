@@ -73,7 +73,7 @@ function Janken() {
 
             {phase === "start" && (
                 <button
-                    className="bg-blue-300 px-6 py-3 rounded"
+                    className="bg-sky-300 px-6 py-3 rounded text-[#0a101d]"
                     onClick={startGame}
                 >
                     スタート
@@ -87,7 +87,7 @@ function Janken() {
                     <section className="flex justify-center gap-10 mt-10">
 
                         <button
-                            className="h-20 w-20 bg-green-100 cursor-grabbing"
+                            className="h-20 w-20 bg-green-100 cursor-grabbing text-[#0a101d]"
                             disabled={userHand !== null}
                             onClick={() => chooseHand(0)}
                         >
@@ -95,7 +95,7 @@ function Janken() {
                         </button>
 
                         <button
-                            className="h-20 w-20 bg-red-100 cursor-pointer"
+                            className="h-20 w-20 bg-red-100 cursor-pointer text-[#0a101d]"
                             disabled={userHand !== null}
                             onClick={() => chooseHand(1)}
                         >
@@ -103,7 +103,7 @@ function Janken() {
                         </button>
 
                         <button
-                            className="h-20 w-20 bg-yellow-100 cursor-grab"
+                            className="h-20 w-20 bg-yellow-100 cursor-grab text-[#0a101d]"
                             disabled={userHand !== null}
                             onClick={() => chooseHand(2)}
                         >
@@ -120,7 +120,7 @@ function Janken() {
                             {userHand !== null && (
                                 <FontAwesomeIcon
                                     icon={hands[userHand]}
-                                    className="text-6xl mt-2"
+                                    className="text-6xl mt-2 text-[#0a101d]"
                                 />
                             )}
                         </div>
@@ -130,7 +130,7 @@ function Janken() {
                             {computerHand !== null && (
                                 <FontAwesomeIcon
                                     icon={hands[computerHand]}
-                                    className="text-6xl mt-2"
+                                    className="text-6xl mt-2 text-[#0a101d]"
                                 />
                             )}
                         </div>
@@ -149,7 +149,7 @@ function Janken() {
                     {/* もう一回 */}
                     {phase === "result" && (
                         <button
-                            className="mt-6 bg-blue-300 px-5 py-2 rounded"
+                            className="mt-6 bg-sky-300 px-5 py-2 rounded text-[#0a101d]"
                             onClick={startGame}
                         >
                             もう一回

@@ -33,7 +33,7 @@ export default async function DetailPage({ params }: Props) {
                     />
                 </div>
 
-                <div className="m-auto justify-center item-center w-80 md:w-120 lg:w-170 bg-gray-100 p-7 rounded-lg shadow-2xl">
+                <div className="m-auto justify-center item-center w-80 md:w-120 lg:w-170 bg-gray-100 dark:bg-gray-800 p-7 rounded-lg shadow-2xl">
                     <div className="justify-between pb-2">
                         {/* <div className="text-[10px] text-[#fff] w-fit h-fit  bg-red-300 py-1 px-2 rounded-full border-1 border-red-400">非公認</div> */}
                         {/* したの処理で、データにある文字位よって色を変える機能を別関数で作るのも要検討 */}
