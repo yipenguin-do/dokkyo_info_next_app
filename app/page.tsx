@@ -199,8 +199,8 @@ export default function App() {
   }, [keyword])
 
   return (
-    // <div className="bg-white dark:bg-[#141b2a]">
-    <div className="bg-[#0a101d]">
+    <div className="bg-white dark:bg-[#141b2a]">
+    {/* <div className="bg-[#0a101d]"> */}
       {/* <section className="m-auto justify-center text-center py-20 md:py-30 lg: py40 bg-[url('/d_foto.jpg')] bg-cover bg-center font-bold text-3xl">
       </section> */}
       <div className="m-auto text-center text-lg pt-10 pb-5 md:py-20">
