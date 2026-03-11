@@ -243,9 +243,9 @@ export default function App() {
           </div>
         </>
       )}
-      <div className="flex-wrap pb-10 pl-13">
-        {/* <p className="text-sm md:text-base h-fit">人気上位のタグ：</p> */}
-        {/* <div>
+      {/* <div className="flex-wrap pb-10 pl-5 md:pl-10">
+        <p className="text-sm md:text-base h-fit">人気上位のタグ：</p>
+        <div>
             {["初心者歓迎", "仲良し", "大会あり"].map((tag) => (
               <button
                 key={tag}
@@ -255,12 +255,12 @@ export default function App() {
                 #{tag}
               </button>
             ))}
-          </div> */}
-      </div>
+          </div>
+      </div> */}
       {/* </section> */}
 
 
-      <section className="pb-20"> {/* 部活サークル等の表示。ただし、このページでは４枚程度を表示する。 */}
+      <section className="pt-10 pb-20"> {/* 部活サークル等の表示。ただし、このページでは４枚程度を表示する。 */}
         <p className="pl-5 md:pl-7 lg:pl-30 font-bold text-2xl pb-5">
           <FontAwesomeIcon icon={faPeopleRobbery} className="text-3xl pr-2 md:pr-5" />部活・サークル
         </p>

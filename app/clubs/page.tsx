@@ -11,6 +11,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function ClubPage() {
   const [keyword, setKeyword] = useState("");
 
+  const serch = [...clubList]
+  .filter((club) => {
+    const nameMatch = club.name.toLowerCase().includes(keyword.toLowerCase());
+
+    const tagMatch = club.tag
+    .split(", ")
+    .some((tag) =>
+      tag.toLowerCase().includes(keyword.toLowerCase())
+    );
+
+  const classifyMach = club.class
+    .split(", ")
+    .some((classify) =>
+      classify.toLowerCase().includes(keyword.toLowerCase())
+    );
+
+    return( nameMatch || tagMatch || classifyMach)
+  })
+
   return (
     <div className="dark:bg-[#0B0F17]">
       <div className="m-auto text-center text-2xl md:text-[30px] pb-20 pt-10">
@@ -71,19 +90,17 @@ export default function ClubPage() {
       </div>
 
       <p className="text-lg md:text-xl pl-5 lg:pl-60">
-        件数：{clubList.filter((club) => club.name.toLowerCase().includes(keyword.toLowerCase())).length} 件
+        件数：{serch.length} 件
       </p>
 
       <section className="pb-40">
         <div className="bg-black-500 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5 m-auto justify-center md:max-w-200 md:p-5 lg:max-w-300 max-w-90">
-          {clubList.filter((club) => club.name.toLowerCase().includes(keyword.toLowerCase())).length === 0 && (
+          {serch.length === 0 && (
             <p className="col-span-full text-center text-gray-400 py-30">
               該当する団体がありません
             </p>
           )}
-          {clubList.filter(
-            (club) => club.name.toLowerCase().includes(keyword.toLowerCase())
-          ).map(club => (
+          {serch.map(club => (
             <div
               key={club.id}
               className="p-2 rounded-xl border-gray-200 dark:border-[#3B4457] border-1 shadow-md hover:shadow-2xl focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-blaack-100 transition duration-300 rounded-lg">
