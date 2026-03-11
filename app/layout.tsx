@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Ubuntu } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Link from "next/link";
 import { Josefin_Sans, Noto_Sans_JP, Kosugi_Maru } from "next/font/google";
 import "./globals.css";
+
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -163,6 +165,10 @@ export default function RootLayout({
         <main>
           {children}
         </main>
+
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
+        )}
 
         <Menu />
 
