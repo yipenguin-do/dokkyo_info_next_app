@@ -193,7 +193,7 @@ export default function RootLayout({
 
 function Menu() {
   return (
-    <div className="m-auto flex justify-center text-center text-[#0a101d] md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 w-2/3 h-fit py-3 rounded-full gap-5 text-3xl bg-white shadow-2xl z-1">
+    <div className="m-auto flex justify-center border-gray-300 border-1 text-center text-[#0a101d] md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 w-2/3 h-fit py-3 rounded-full gap-5 text-3xl bg-white shadow-2xl z-1">
       <Link href='/'><FontAwesomeIcon icon={faHouse} /></Link>
       <Link href='/clubs'><FontAwesomeIcon icon={faPeopleRobbery} /></Link>
       <Link href='/prepare'><FontAwesomeIcon icon={faChalkboardUser} /></Link>
