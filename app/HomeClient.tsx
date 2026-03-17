@@ -207,7 +207,7 @@ export default function App() {
         <p className="text-lg md:text-3xl pb-2">大学の部活とゼミをまとめて探せるサイト</p>
         <p className="text-base md:text-xl">きっとピッタリな場所が見つかる。</p>
         <div className="text-sm text-gray-500 pt-5">
-          <p>※現在はデモページです。</p>
+          <p>※情報は1年前のため、異なる場合があります。</p>
           <p>掲載申請は<strong><u><a href="https://www.instagram.com/dokkyo_info?igsh=bnF0dXRtbmUxOG9n&utm_source=qr">Instagram</a></u></strong>のDMにて受け付けています。</p>
         </div>
       </div>
@@ -279,7 +279,7 @@ export default function App() {
                   <List
                     imagePath={club.imagePath}
                     name={club.name}
-                    date={club.date}
+                    dayOfWeek={club.day}
                     location={club.location}
                     explain={club.explain}
                   />
@@ -335,7 +335,7 @@ export default function App() {
                 <List
                   imagePath={semi.imagePath}
                   name={semi.name}
-                  date={semi.date}
+                  dayOfWeek={semi.date}
                   explain={semi.explain}
                 />
               </div>
@@ -348,7 +348,7 @@ export default function App() {
   )
 }
 
-export function List({ imagePath, name, date, location, explain }: { imagePath: string, name: string, date: string, location?: string, explain: string }) {
+export function List({ imagePath, name, dayOfWeek, location, explain }: { imagePath: string, name: string, dayOfWeek: string, location?: string, explain: string }) {
   return (
     <>
       <div className="m-auto justify-center text-center item-center">
@@ -364,7 +364,7 @@ export function List({ imagePath, name, date, location, explain }: { imagePath: 
         </h1>
         <div className="flex flex-wrap justify-center gap-x-2 md:gap-x-3 text-sm md:text-base py-2">
           <p>
-            <FontAwesomeIcon icon={faClock} />{date}
+            <FontAwesomeIcon icon={faClock} />{dayOfWeek}
           </p>
           <p>
             <FontAwesomeIcon icon={faLocationDot} />{location}

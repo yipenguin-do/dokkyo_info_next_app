@@ -166,10 +166,6 @@ export default function RootLayout({
           {children}
         </main>
 
-        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
-        )}
-
         <Menu />
 
         {/* <Footer /> */}
@@ -187,6 +183,9 @@ export default function RootLayout({
           </p>
         </footer>
 
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
+        )}
       </body>
     </html>
   );

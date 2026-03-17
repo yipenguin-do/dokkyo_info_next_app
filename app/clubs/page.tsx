@@ -36,7 +36,7 @@ export default function ClubPage() {
         <h1>部活・サークル一覧</h1>
 
         <div className="text-sm text-gray-400 pt-5">
-          <p>※現在はデモページです。</p>
+          <p>※現在は文化系の部活動のみ掲載中。今後拡大予定。</p>
           <p>掲載申請は<strong><u><a href="https://www.instagram.com/dokkyo_info?igsh=bnF0dXRtbmUxOG9n&utm_source=qr">Instagram</a></u></strong>のDMにて受け付けています。</p>
         </div>
 
@@ -108,7 +108,7 @@ export default function ClubPage() {
                 <List
                   imagePath={club.imagePath}
                   name={club.name}
-                  date={club.date}
+                  dayOfWeek={club.day}
                   location={club.location}
                   explain={club.explain}
                 />
